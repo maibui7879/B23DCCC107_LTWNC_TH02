@@ -1,4 +1,4 @@
 import type { Reducer } from 'react';
-export const withLogger = <S, A>(reducer: Reducer<S, A>): Reducer<S, A> => (state, action) => {
-  const next = reducer(state, action); if (import.meta.env.DEV) console.log(action, state, next); return next;
+export const withLogger = <S, A extends { type: string }>(reducer: Reducer<S, A>): Reducer<S, A> => (state, action) => {
+  const next = reducer(state, action); if (import.meta.env.DEV) console.log(action.type, state, next); return next;
 };
