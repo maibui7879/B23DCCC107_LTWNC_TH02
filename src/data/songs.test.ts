@@ -1,2 +1,9 @@
-import { describe, expect, it } from 'vitest'; import { generateSongs } from './songs';
-describe('generateSongs', () => { const songs = generateSongs(10000); it('tạo đủ 10000 bài', () => expect(songs).toHaveLength(10000)); it('id không trùng', () => expect(new Set(songs.map((s) => s.id)).size).toBe(10000)); it('thời lượng trong khoảng cho phép', () => expect(songs.every((s) => s.duration >= 150 && s.duration <= 300)).toBe(true)); });
+import { describe, expect, it } from 'vitest';
+import { generateSongs } from './songs';
+describe('generateSongs', () => {
+  const songs = generateSongs(10000);
+  it('tạo đủ 10000 bài', () => expect(songs).toHaveLength(10000));
+  it('id không trùng', () => expect(new Set(songs.map((s) => s.id)).size).toBe(10000));
+  it('thời lượng trong khoảng cho phép', () =>
+    expect(songs.every((s) => s.duration >= 150 && s.duration <= 300)).toBe(true));
+});

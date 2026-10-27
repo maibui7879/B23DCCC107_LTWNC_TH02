@@ -1,2 +1,36 @@
-import { SONGS } from '../../data/songs'; import { usePlayerStore } from '../player/usePlayerStore'; import { useFavoritesStore } from './useFavoritesStore'; import { SongRow } from '../library/SongRow';
-export default function FavoritesPage() { const ids = useFavoritesStore((s) => s.ids); const toggle = useFavoritesStore((s) => s.toggle); const playQueue = usePlayerStore((s) => s.playQueue); const songs = SONGS.filter((s) => ids.includes(s.id)); return <main><div className="hero"><p className="eyebrow">YOUR PICKS</p><h1>Bài hát yêu thích</h1><button disabled={!songs.length} onClick={() => playQueue(songs, 0)}>Phát tất cả</button></div>{songs.length ? songs.map((song, index) => <SongRow key={song.id} song={song} index={index} onPlay={(s) => playQueue(songs, songs.indexOf(s))} onQueue={() => undefined} favorite onFavorite={toggle} />) : <p className="empty">Bạn chưa có bài hát yêu thích.</p>}</main>; }
+import { SONGS } from '../../data/songs';
+import { usePlayerStore } from '../player/usePlayerStore';
+import { useFavoritesStore } from './useFavoritesStore';
+import { SongRow } from '../library/SongRow';
+export default function FavoritesPage() {
+  const ids = useFavoritesStore((s) => s.ids);
+  const toggle = useFavoritesStore((s) => s.toggle);
+  const playQueue = usePlayerStore((s) => s.playQueue);
+  const songs = SONGS.filter((s) => ids.includes(s.id));
+  return (
+    <main>
+      <div className="hero">
+        <p className="eyebrow">YOUR PICKS</p>
+        <h1>Bài hát yêu thích</h1>
+        <button disabled={!songs.length} onClick={() => playQueue(songs, 0)}>
+          Phát tất cả
+        </button>
+      </div>
+      {songs.length ? (
+        songs.map((song, index) => (
+          <SongRow
+            key={song.id}
+            song={song}
+            index={index}
+            onPlay={(s) => playQueue(songs, songs.indexOf(s))}
+            onQueue={() => undefined}
+            favorite
+            onFavorite={toggle}
+          />
+        ))
+      ) : (
+        <p className="empty">Bạn chưa có bài hát yêu thích.</p>
+      )}
+    </main>
+  );
+}

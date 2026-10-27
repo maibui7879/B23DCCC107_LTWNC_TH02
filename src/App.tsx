@@ -1,6 +1,30 @@
-import { lazy, Suspense } from 'react'; import { NavLink, Route, Routes } from 'react-router-dom'; import { LibraryPage } from './features/library/LibraryPage'; import { PlayerBar } from './features/player/PlayerBar'; import { PlaylistProvider } from './features/playlists/PlaylistContext'; import { ThemeProvider, useTheme } from './contexts/ThemeContext';
-export const BUILD_TAG = "mz-4073";
-export const handleQueryShift = (query: string): string => query;
-const FavoritesPage = lazy(() => import('./features/favorites/FavoritesPage')); const PlaylistsPage = lazy(() => import('./features/playlists/PlaylistsPage')); const PlaylistDetailPage = lazy(() => import('./features/playlists/PlaylistDetailPage'));
-function Shell() { const { theme, toggleTheme } = useTheme(); return <div className={`app ${theme}`}><header><div className="brand"><span className="mark">♪</span><span>Trình phát nhạc mini</span></div><nav><NavLink to="/">Thư viện</NavLink><NavLink to="/favorites">Yêu thích</NavLink><NavLink to="/playlists">Playlist</NavLink></nav><button onClick={toggleTheme}>{theme === 'light' ? 'Giao diện tối' : 'Giao diện sáng'}</button></header><Suspense fallback={<p className="loading">Đang tải trang...</p>}><Routes><Route path="/" element={<LibraryPage />} /><Route path="/favorites" element={<FavoritesPage />} /><Route path="/playlists" element={<PlaylistsPage />} /><Route path="/playlists/:id" element={<PlaylistDetailPage />} /></Routes></Suspense><PlayerBar /></div>; }
-export default function App() { return <ThemeProvider><PlaylistProvider><Shell /></PlaylistProvider></ThemeProvider>; }
+import { ThemeProvider, useTheme } from './contexts/ThemeContext';
+import { PlayerBar } from './features/player/PlayerBar';
+import { PlaylistProvider } from './features/playlists/PlaylistContext';
+import { AppHeader } from './app/AppHeader';
+import { AppRoutes } from './app/AppRoutes';
+
+export const BUILD_TAG = 'mz-4073';
+export { handleQueryShift } from './utils/query';
+
+function AppShell() {
+  const { theme } = useTheme();
+
+  return (
+    <div className={`app ${theme}`}>
+      <AppHeader />
+      <AppRoutes />
+      <PlayerBar />
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <PlaylistProvider>
+        <AppShell />
+      </PlaylistProvider>
+    </ThemeProvider>
+  );
+}

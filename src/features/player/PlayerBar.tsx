@@ -1,2 +1,49 @@
-import { useEffect } from 'react'; import { usePlayerStore } from './usePlayerStore'; import { ProgressBar } from './ProgressBar';
-export const PlayerBar = () => { const current = usePlayerStore((s) => s.queue[s.currentIndex]); const playing = usePlayerStore((s) => s.isPlaying); const position = usePlayerStore((s) => s.position); const toggle = usePlayerStore((s) => s.togglePlay); const next = usePlayerStore((s) => s.next); const prev = usePlayerStore((s) => s.prev); const tick = usePlayerStore((s) => s.tick); useEffect(() => { if (!playing) return; const timer = window.setInterval(tick, 1000); return () => window.clearInterval(timer); }, [playing, tick]); return <footer className="player"><div><b>{current ? `Đang phát: ${current.title}` : 'Chưa phát bài nào'}</b>{current && <small> — {current.artist}</small>}</div><ProgressBar position={position} duration={current?.duration ?? 0} /><div className="player-actions"><button onClick={prev} aria-label="Bài trước">⏮</button><button onClick={toggle} aria-label={playing ? 'Tạm dừng' : 'Phát'}>{playing ? '⏸' : '▶'}</button><button onClick={next} aria-label="Bài sau">⏭</button><span>Hàng đợi: {usePlayerStore((s) => s.queue.length)} bài</span></div></footer>; };
+import { useEffect } from 'react';
+import { ProgressBar } from './ProgressBar';
+import { usePlayerStore } from './usePlayerStore';
+
+function PlayerControls({ queueLength }: { queueLength: number }) {
+  const isPlaying = usePlayerStore((state) => state.isPlaying);
+  const togglePlay = usePlayerStore((state) => state.togglePlay);
+  const next = usePlayerStore((state) => state.next);
+  const previous = usePlayerStore((state) => state.prev);
+
+  return (
+    <div className="player-actions">
+      <button type="button" onClick={previous} aria-label="Bài trước">
+        ⏮
+      </button>
+      <button type="button" onClick={togglePlay} aria-label={isPlaying ? 'Tạm dừng' : 'Phát'}>
+        {isPlaying ? '⏸' : '▶'}
+      </button>
+      <button type="button" onClick={next} aria-label="Bài sau">
+        ⏭
+      </button>
+      <span>Hàng đợi: {queueLength} bài</span>
+    </div>
+  );
+}
+
+export function PlayerBar() {
+  const currentSong = usePlayerStore((state) => state.queue[state.currentIndex]);
+  const isPlaying = usePlayerStore((state) => state.isPlaying);
+  const tick = usePlayerStore((state) => state.tick);
+  const queueLength = usePlayerStore((state) => state.queue.length);
+
+  useEffect(() => {
+    if (!isPlaying) return undefined;
+    const timer = window.setInterval(tick, 1000);
+    return () => window.clearInterval(timer);
+  }, [isPlaying, tick]);
+
+  return (
+    <footer className="player">
+      <div>
+        <b>{currentSong ? `Đang phát: ${currentSong.title}` : 'Chưa phát bài nào'}</b>
+        {currentSong && <small> — {currentSong.artist}</small>}
+      </div>
+      <ProgressBar />
+      <PlayerControls queueLength={queueLength} />
+    </footer>
+  );
+}
