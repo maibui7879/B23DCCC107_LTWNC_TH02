@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1793083572166" clover="3.2.0">
+  <project timestamp="1793083572166" name="All files">
+    <metrics statements="50" coveredstatements="45" conditionals="88" coveredconditionals="58" methods="90" coveredmethods="59" elements="228" coveredelements="162" complexity="0" loc="50" ncloc="50" packages="5" files="13" classes="13"/>
+    <package name="features.favorites">
+      <metrics statements="3" coveredstatements="2" conditionals="4" coveredconditionals="2" methods="13" coveredmethods="7"/>
+      <file name="FavoritesPage.tsx" path="C:\Users\Admin\Desktop\project\practice\thuc-hanh\src\features\favorites\FavoritesPage.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="9" coveredmethods="6"/>
+        <line num="2" count="20000" type="cond" truecount="2" falsecount="0"/>
+      </file>
+      <file name="useFavoritesStore.ts" path="C:\Users\Admin\Desktop\project\practice\thuc-hanh\src\features\favorites\useFavoritesStore.ts">
+        <metrics statements="2" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="1"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="0" type="cond" truecount="0" falsecount="2"/>
+      </file>
+    </package>
+    <package name="features.library">
+      <metrics statements="21" coveredstatements="21" conditionals="25" coveredconditionals="18" methods="24" coveredmethods="17"/>
+      <file name="LibraryPage.tsx" path="C:\Users\Admin\Desktop\project\practice\thuc-hanh\src\features\library\LibraryPage.tsx">
+        <metrics statements="20" coveredstatements="20" conditionals="20" coveredconditionals="13" methods="20" coveredmethods="13"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="8" type="stmt"/>
+        <line num="12" count="8" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="14" count="8" type="stmt"/>
+        <line num="15" count="8" type="stmt"/>
+        <line num="16" count="23" type="stmt"/>
+        <line num="17" count="23" type="stmt"/>
+        <line num="18" count="23" type="stmt"/>
+        <line num="19" count="23" type="stmt"/>
+        <line num="20" count="8" type="stmt"/>
+        <line num="21" count="8" type="stmt"/>
+        <line num="22" count="8" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="24" count="40000" type="cond" truecount="4" falsecount="0"/>
+        <line num="25" count="21997" type="cond" truecount="2" falsecount="2"/>
+        <line num="27" count="8" type="stmt"/>
+        <line num="28" count="8" type="cond" truecount="0" falsecount="2"/>
+        <line num="29" count="72" type="cond" truecount="1" falsecount="1"/>
+        <line num="30" count="72" type="cond" truecount="6" falsecount="2"/>
+      </file>
+      <file name="SongRow.tsx" path="C:\Users\Admin\Desktop\project\practice\thuc-hanh\src\features\library\SongRow.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="5" coveredconditionals="5" methods="4" coveredmethods="4"/>
+        <line num="6" count="74" type="cond" truecount="5" falsecount="0"/>
+      </file>
+    </package>
+    <package name="features.player">
+      <metrics statements="9" coveredstatements="7" conditionals="30" coveredconditionals="19" methods="24" coveredmethods="19"/>
+      <file name="PlayerBar.tsx" path="C:\Users\Admin\Desktop\project\practice\thuc-hanh\src\features\player\PlayerBar.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="12" coveredconditionals="10" methods="11" coveredmethods="11"/>
+        <line num="2" count="10" type="cond" truecount="10" falsecount="2"/>
+      </file>
+      <file name="ProgressBar.tsx" path="C:\Users\Admin\Desktop\project\practice\thuc-hanh\src\features\player\ProgressBar.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="2" count="3" type="cond" truecount="1" falsecount="1"/>
+      </file>
+      <file name="usePlayerStore.ts" path="C:\Users\Admin\Desktop\project\practice\thuc-hanh\src\features\player\usePlayerStore.ts">
+        <metrics statements="7" coveredstatements="5" conditionals="16" coveredconditionals="8" methods="12" coveredmethods="7"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="8" count="2" type="cond" truecount="4" falsecount="0"/>
+        <line num="9" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="11" count="2" type="cond" truecount="3" falsecount="1"/>
+      </file>
+    </package>
+    <package name="features.playlists">
+      <metrics statements="16" coveredstatements="14" conditionals="29" coveredconditionals="19" methods="28" coveredmethods="15"/>
+      <file name="PlaylistContext.tsx" path="C:\Users\Admin\Desktop\project\practice\thuc-hanh\src\features\playlists\PlaylistContext.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="6" coveredconditionals="4" methods="5" coveredmethods="5"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="18" type="cond" truecount="1" falsecount="1"/>
+        <line num="8" count="18" type="cond" truecount="1" falsecount="1"/>
+      </file>
+      <file name="PlaylistDetailPage.tsx" path="C:\Users\Admin\Desktop\project\practice\thuc-hanh\src\features\playlists\PlaylistDetailPage.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="10" coveredmethods="0"/>
+        <line num="2" count="0" type="cond" truecount="0" falsecount="2"/>
+      </file>
+      <file name="PlaylistsPage.tsx" path="C:\Users\Admin\Desktop\project\practice\thuc-hanh\src\features\playlists\PlaylistsPage.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="6" coveredconditionals="5" methods="6" coveredmethods="4"/>
+        <line num="2" count="10" type="cond" truecount="5" falsecount="1"/>
+      </file>
+      <file name="playlistReducer.ts" path="C:\Users\Admin\Desktop\project\practice\thuc-hanh\src\features\playlists\playlistReducer.ts">
+        <metrics statements="7" coveredstatements="6" conditionals="13" coveredconditionals="9" methods="6" coveredmethods="5"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="6" type="cond" truecount="4" falsecount="1"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="2" type="cond" truecount="4" falsecount="0"/>
+        <line num="9" count="2" type="cond" truecount="1" falsecount="1"/>
+      </file>
+      <file name="withLogger.ts" path="C:\Users\Admin\Desktop\project\practice\thuc-hanh\src\features\playlists\withLogger.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="1" type="cond" truecount="1" falsecount="1"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="format.ts" path="C:\Users\Admin\Desktop\project\practice\thuc-hanh\src\utils\format.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="83" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
