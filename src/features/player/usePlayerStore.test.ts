@@ -27,4 +27,14 @@ describe('usePlayerStore', () => {
     usePlayerStore.getState().next();
     expect(usePlayerStore.getState().isPlaying).toBe(false);
   });
+  it('thêm bài đầu tiên vào hàng đợi để sẵn sàng phát', () => {
+    usePlayerStore.getState().addToQueue(songs[0]);
+
+    expect(usePlayerStore.getState().queue).toEqual([songs[0]]);
+    expect(usePlayerStore.getState().currentIndex).toBe(0);
+    expect(usePlayerStore.getState().isPlaying).toBe(false);
+
+    usePlayerStore.getState().togglePlay();
+    expect(usePlayerStore.getState().isPlaying).toBe(true);
+  });
 });

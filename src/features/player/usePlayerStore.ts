@@ -33,7 +33,13 @@ export const usePlayerStore = create<PlayerState>()((set, get) => ({
           ? { currentIndex: s.currentIndex - 1, position: 0, isPlaying: true }
           : { position: 0 },
     ),
-  addToQueue: (song) => set((s) => (s.queue.some((item) => item.id === song.id) ? s : { queue: [...s.queue, song] })),
+  addToQueue: (song) =>
+    set((s) => {
+      if (s.queue.some((item) => item.id === song.id)) return s;
+
+      const queue = [...s.queue, song];
+      return s.currentIndex === -1 ? { queue, currentIndex: 0, position: 0 } : { queue };
+    }),
   tick: () => {
     const s = get();
     const song = s.queue[s.currentIndex];

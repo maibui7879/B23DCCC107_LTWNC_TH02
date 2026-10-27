@@ -58,7 +58,7 @@ export default function PlaylistDetailPage() {
     <main>
       <Link to="/playlists">← Playlist</Link>
       <div className="hero">
-        <p className="eyebrow">PLAYLIST</p>
+        <p className="eyebrow">Playlist</p>
         <h1>{playlist.name}</h1>
         <p>Tổng thời lượng: {formatDuration(totalDuration)}</p>
         <button type="button" disabled={!songs.length} onClick={() => playQueue(songs, 0)}>

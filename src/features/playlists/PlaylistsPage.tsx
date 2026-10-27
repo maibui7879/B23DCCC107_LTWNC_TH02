@@ -60,7 +60,7 @@ export default function PlaylistsPage() {
   return (
     <main>
       <div className="hero">
-        <p className="eyebrow">COLLECTIONS</p>
+        <p className="eyebrow">Danh sách playlist</p>
         <h1>Playlist của bạn</h1>
       </div>
       <CreatePlaylistForm onCreate={createPlaylist} error={error} />

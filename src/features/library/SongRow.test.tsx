@@ -9,7 +9,15 @@ describe('SongRow', () => {
     const onQueue = vi.fn();
     const onFavorite = vi.fn();
     render(
-      <SongRow song={song} index={0} onPlay={onPlay} onQueue={onQueue} favorite={false} onFavorite={onFavorite} />,
+      <SongRow
+        song={song}
+        index={0}
+        onPlay={onPlay}
+        onQueue={onQueue}
+        onAddToPlaylist={vi.fn()}
+        favorite={false}
+        onFavorite={onFavorite}
+      />,
     );
     expect(screen.getByText(song.title)).toBeInTheDocument();
     await screen.getByRole('button', { name: 'Phát' }).click();

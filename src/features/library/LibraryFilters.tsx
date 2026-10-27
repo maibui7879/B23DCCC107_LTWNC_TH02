@@ -1,6 +1,5 @@
 import type { Genre } from '../../types';
 import { GENRES } from '../../data/songs';
-import type { Playlist } from '../playlists/playlistReducer';
 
 export type SortOption = '' | 'name' | 'duration';
 
@@ -8,24 +7,18 @@ interface LibraryFiltersProps {
   query: string;
   genre: Genre | '';
   sort: SortOption;
-  selectedPlaylistId: string;
-  playlists: Playlist[];
   onQueryChange: (query: string) => void;
   onGenreChange: (genre: Genre | '') => void;
   onSortChange: (sort: SortOption) => void;
-  onPlaylistChange: (playlistId: string) => void;
 }
 
 export function LibraryFilters({
   query,
   genre,
   sort,
-  selectedPlaylistId,
-  playlists,
   onQueryChange,
   onGenreChange,
   onSortChange,
-  onPlaylistChange,
 }: LibraryFiltersProps) {
   return (
     <div className="filters">
@@ -56,19 +49,6 @@ export function LibraryFilters({
           <option value="duration">Thời lượng tăng dần</option>
         </select>
       </label>
-      {playlists.length > 0 && (
-        <label>
-          Playlist
-          <select value={selectedPlaylistId} onChange={(event) => onPlaylistChange(event.target.value)}>
-            <option value="">Chọn playlist</option>
-            {playlists.map((playlist) => (
-              <option key={playlist.id} value={playlist.id}>
-                {playlist.name}
-              </option>
-            ))}
-          </select>
-        </label>
-      )}
     </div>
   );
 }

@@ -7,23 +7,45 @@ interface Props {
   index: number;
   onPlay: (song: Song) => void;
   onQueue: (song: Song) => void;
-  queueLabel?: string;
+  onAddToPlaylist: (song: Song) => void;
   favorite: boolean;
   onFavorite: (id: string) => void;
 }
-export const SongRow = memo(
-  ({ song, index, onPlay, onQueue, queueLabel = '+ Hàng đợi', favorite, onFavorite }: Props) => (
+
+export const SongRow = memo(function SongRow({
+  song,
+  index,
+  onPlay,
+  onQueue,
+  onAddToPlaylist,
+  favorite,
+  onFavorite,
+}: Props) {
+  return (
     <div className="song-row">
       <span>{index + 1}</span>
       <strong>{song.title}</strong>
       <span>{song.artist}</span>
       <span className="tag">{song.genre}</span>
       <span>{formatDuration(song.duration)}</span>
-      <button onClick={() => onPlay(song)}>Phát</button>
-      <button onClick={() => onQueue(song)}>{queueLabel}</button>
-      <button onClick={() => onFavorite(song.id)} aria-label={favorite ? 'Bỏ yêu thích' : 'Thêm vào yêu thích'}>
-        {favorite ? '♥' : '♡'}
-      </button>
+      <div className="song-actions">
+        <button type="button" onClick={() => onPlay(song)}>
+          Phát
+        </button>
+        <button type="button" onClick={() => onQueue(song)}>
+          + Hàng đợi
+        </button>
+        <button type="button" onClick={() => onAddToPlaylist(song)}>
+          + Playlist
+        </button>
+        <button
+          type="button"
+          onClick={() => onFavorite(song.id)}
+          aria-label={favorite ? 'Bỏ yêu thích' : 'Thêm vào yêu thích'}
+        >
+          {favorite ? '♥' : '♡'}
+        </button>
+      </div>
     </div>
-  ),
-);
+  );
+});
